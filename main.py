@@ -71,4 +71,6 @@ l_octal_valor = criar_linha("OCTAL")
 l_decimal_valor = criar_linha("DECIMAL")
 l_hexadecimal_valor = criar_linha("HEXADECIMAL")
 
+#teste commit
+
 janela.mainloop()
