@@ -34,8 +34,8 @@ def adicionar_musica_playlist(playlist_id, nome_musica):
     else:
         return "❌ Música não encontrada!"
     
-def verificar_musicas_mais_tocadas():
-    top_tracks = sp.current_user_top_tracks(limit=5)
+def verificar_musicas_mais_tocadas(periodo="medium_term"):
+    top_tracks = sp.current_user_top_tracks(limit=5, time_range=periodo)
     if not top_tracks["items"]:
         return "❌ Nenhuma música foi encontrada no seu histórico."
     resultado = "🔥 Músicas mais tocadas:\n\n"

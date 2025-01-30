@@ -25,7 +25,17 @@ def adicionar():
     output_label.configure(text=resultado)
 
 def mostrar_top_musicas():
-    resultado = verificar_musicas_mais_tocadas()
+    periodo = periodo_var.get()
+
+    if periodo == "1 mês":
+        resultado = verificar_musicas_mais_tocadas("short_term") 
+    elif periodo == "6 meses":
+        resultado = verificar_musicas_mais_tocadas("medium_term") 
+    elif periodo == "Todos os tempos":
+        resultado = verificar_musicas_mais_tocadas("long_term") 
+    else:
+        resultado = "Erro ao definir o período."  
+    
     output_label.configure(text=resultado, anchor="w", justify="left")
 
 frame = ctk.CTkFrame(app)
@@ -51,6 +61,10 @@ entrada_playlist_id.pack(pady=5, fill="x", padx=20)
 
 btn_adicionar = ctk.CTkButton(frame, text="🎶 Adicionar Música à Playlist", command=adicionar)
 btn_adicionar.pack(pady=5)
+
+periodo_var = ctk.StringVar(value="6 meses")  
+combo_periodo = ctk.CTkComboBox(frame, variable=periodo_var, values=["1 mês", "6 meses", "Todos os tempos"], width=200)
+combo_periodo.pack(pady=5)
 
 btn_top_musicas = ctk.CTkButton(frame, text="🔥 Músicas Mais Tocadas", command=mostrar_top_musicas)
 btn_top_musicas.pack(pady=5)
