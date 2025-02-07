@@ -72,4 +72,6 @@ btn_top_musicas.pack(pady=5)
 output_label = ctk.CTkLabel(frame, text="", wraplength=450, font=("Arial", 14), justify="left", anchor="w")
 output_label.pack(pady=10, padx=20)
 
+//commit teste
+
 app.mainloop()
